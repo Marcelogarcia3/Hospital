@@ -6,18 +6,18 @@ public class Registro {
 
     private List<Persona> persona;
     public Registro(){
-        this.persona = new ArrayList<Persona>();
+        this.persona = new ArrayList<Persona>(); //no es necesario poner <Persona>
     }
 
-    public Persona añadirPersonas(String nombre, int edad){
-        Persona persona = new Persona(nombre, edad);
+
+
+    public void anadirPersona(Persona persona) {
         this.persona.add(persona);
-        return persona;
     }
 
-    public boolean mayorOIgualA60(String nombre,int edad) {
+    public boolean buscarMayorOIgualA60(int edad) {
         for (Persona paciente : this.persona) {
-            if (paciente.getNombre().equals(nombre) && paciente.getEdad() >= edad) {
+            if (paciente.getEdad() >= 60) {
                 System.out.println(paciente.toString());
             }
         }
@@ -25,7 +25,7 @@ public class Registro {
         return false;
     }
 
-    public boolean buscadorNombre(String nombre,int edad) {
+    public boolean buscadorNombre(String nombre) {
         for (Persona paciente : this.persona) {
             if (paciente.getNombre().equals(nombre)) {
                 System.out.println(paciente.toString());
